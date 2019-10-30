@@ -187,6 +187,7 @@ def hello():
 
 ![img/google_logo.png](img/google_logo.png)
 
+`index.html`
 ```html
 <section>
     <div class="container d-flex flex-column justify-content-center">
@@ -196,3 +197,129 @@ def hello():
 </section>
 
 ```
+
+## Google Search, Button 추가
+> 검색창과 버튼을 만들고 가운데 배치합니다
+
+![img/google_search.png](img/google_search.png)
+`index.html`
+```html
+<section>
+    <div class="container d-flex flex-column justify-content-center">
+        <!--Google Logo-->
+        <img src="https://cdn.vox-cdn.com/thumbor/Pkmq1nm3skO0-j693JTMd7RL0Zk=/0x0:2012x1341/1200x800/filters:focal(0x0:2012x1341)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg" alt="" width="272" height="181" class="mx-auto">
+        <!--Google Search-->
+        <input type="text" class="form-control rounded-pill shadow-sm p-3 mb-4 bg-white rounded" placeholder="Google 검색 또는 URL 입력" aria-label="Text input with segmented dropdown button">
+        <!--Button-->
+        <div class="mx-auto">
+            <button type="button" class="btn btn-secondary rounded-0 d-inline disabled mr-2">Google Search</button>
+            <button type="button" class="btn btn-secondary rounded-0 d-inline disabled">I'm feeling lucky</button>
+        </div>
+    </div>
+</section>
+```
+
+## footer 만들기
+> 하단에 들어갈 footer를 만듭니다
+
+![img/footer.png](img/footer.png)
+`index.html`
+```html
+<footer class="d-flex justify-content-between bg-light" style="margin-top:200px">
+    <nav class="nav">
+      <a class="nav-link disabled" href="#">Advertising</a>
+      <a class="nav-link disabled" href="#">Business</a>
+      <a class="nav-link disabled" href="#">About</a>
+    </nav>
+    <nav class="nav">
+      <a class="nav-link disabled" href="#">Privacy</a>
+      <a class="nav-link disabled" href="#">Terms</a>
+      <a class="nav-link disabled" href="#">Settings</a>
+    </nav>
+</footer>
+```
+
+## 최종 코
+
+`hello.py`
+```python
+from flask import Flask, render_template
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+    return render_template("index.html")
+
+@app.route("/haedal")
+def haedal():
+    return "This is Haedal"
+
+# Flask를 쉽게 켜자
+if __name__ == '__main__':
+  app.run(debug=True)
+```
+
+`index.html`
+```html
+<!doctype html>
+<html>
+<head>
+    <title>Fake Google</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- font awesome CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <ul class="nav justify-content-end py-2 px-3">
+      <li class="nav-item">
+        <a class="nav-link text-muted" href="#">Gmail</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-muted" href="#">Images</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-muted" href="#"><i class="fa fa-th" aria-hidden="true"></i></a>
+      </li>
+      <li class="nav-item">
+        <a class="btn btn-primary" href="#">Sign in</a>
+      </li>
+    </ul>
+
+    <section>
+        <div class="container d-flex flex-column justify-content-center">
+            <!--Google Logo-->
+            <img src="https://cdn.vox-cdn.com/thumbor/Pkmq1nm3skO0-j693JTMd7RL0Zk=/0x0:2012x1341/1200x800/filters:focal(0x0:2012x1341)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg" alt="" width="272" height="181" class="mx-auto">
+            <!--Google Search-->
+            <input type="text" class="form-control rounded-pill shadow-sm p-3 mb-4 bg-white rounded"placeholder="Google 검색 또는 URL 입력" aria-label="Text input with segmented dropdown button">
+            <!--Button-->
+            <div class="mx-auto">
+                <button type="button" class="btn btn-secondary rounded-0 d-inline disabled mr-2">Google Search</button>
+                <button type="button" class="btn btn-secondary rounded-0 d-inline disabled">I'm feeling lucky</button>
+            </div>
+        </div>
+    </section>
+
+    <!--footer-->
+    <footer class="d-flex justify-content-between bg-light" style="margin-top:200px">
+        <nav class="nav">
+          <a class="nav-link disabled" href="#">Advertising</a>
+          <a class="nav-link disabled" href="#">Business</a>
+          <a class="nav-link disabled" href="#">About</a>
+        </nav>
+        <nav class="nav">
+          <a class="nav-link disabled" href="#">Privacy</a>
+          <a class="nav-link disabled" href="#">Terms</a>
+          <a class="nav-link disabled" href="#">Settings</a>
+        </nav>
+    </footer>
+    <!--javascript CDN-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+```
+
+수고 많으셨습니다 :)
