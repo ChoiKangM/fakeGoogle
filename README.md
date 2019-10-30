@@ -1,5 +1,6 @@
 # Fake Google
-> 2% 부족한 구글 첫페이지 만들
+> 2% 부족한 구글 첫페이지 만들기 
+
 ![img/Google_web_search.png](img/Google_web_search.png)
 
 ## `Flask`로 간단한 웹서버 키자
